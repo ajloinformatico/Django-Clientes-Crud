@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block titulo %} Crear Personas {% endblock %}
+{% block contenido %}
+
+<form action="" method="POST" autocomplete="on" enctype="multipart/form-data">
+    <!--Aquí se podría poner el contendio del formulario o pedirle a django que lo renderize -->
+    {% csrf_token %}
+    {{persona_form.as_p}}
+    <!--
+    {{persona_form.nombre}} -> Solo pinta el campo del nombre
+    {{persona_form.nombre.label}} -> Solo pinta el label
+    -->
+    <button type="submit" title="Crea la persona">Enviar</button>
+</form>
+
+
+
+
+
+{% endblock contenido %}

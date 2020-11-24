@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Listado de Contacto{% endblock titulo %}</title>
+</head>
+<body>
+    {% block contenido %} <!--Secciones-->
+    <h1>Listado de contactos</h1>
+    <table style="border:2;">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for persona in personas %}
+                <tr>
+                    <td>{{persona.nombre}}</td>
+                    <td>{{persona.apellido}}</td>
+                    <td>{{persona.correo}}</td>
+                    <td><a href="{% url 'eliminar_persona' persona.id %}" alt="eliminar" title="eliminar">Eliminar</a>  <a href="{% url 'editar_persona' persona.id %}" alt="editar" title="editar">Editar</a></td>
+                    <!--editar_persona?id={{persona.id}-->
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock contenido %}
+</body>
+</html>
